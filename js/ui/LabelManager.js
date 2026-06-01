@@ -1,0 +1,88 @@
+console.log('LabelManager.js loaded');
+
+import { createLabel }
+from './Labels.js';
+
+export function createLabels(organisms){
+
+const labels = [];
+
+organisms.forEach(org=>{
+
+const label =
+createLabel(
+org.userData.name
+);
+
+labels.push({
+
+element:label,
+object:org
+
+});
+
+});
+
+return labels;
+
+}
+
+export function updateLabels(
+
+labels,
+camera
+
+){
+
+labels.forEach(label=>{
+
+const position =
+label.object.position.clone();
+
+position.y += 2.5;
+
+position.project(camera);
+
+const x =
+(position.x*0.5+0.5)
+*window.innerWidth;
+
+const y =
+(-position.y*0.5+0.5)
+*window.innerHeight;
+
+label.element.style.left =
+`${x}px`;
+
+label.element.style.top =
+`${y}px`;
+
+});
+
+}
+
+export function setHoverLabel(labels, hoveredObject){
+
+	if(!labels || !Array.isArray(labels)) return;
+
+	labels.forEach(item=>{
+		if(!item || !item.element) return;
+
+		if(hoveredObject && item.object === hoveredObject){
+			item.element.style.transform = 'translate(-50%,-50%) scale(1.15)';
+			item.element.style.zIndex = '1002';
+			item.element.style.background = 'rgba(255,255,255,0.95)';
+			item.element.style.color = '#000';
+			item.element.style.boxShadow = '0 6px 18px rgba(0,0,0,0.35)';
+		} else {
+			item.element.style.transform = 'translate(-50%,-50%) scale(1)';
+			item.element.style.zIndex = '1000';
+			item.element.style.background = 'rgba(0,0,0,0.65)';
+			item.element.style.color = 'white';
+			item.element.style.boxShadow = '';
+		}
+	});
+
+}
+
+// Nota: las funciones ya se exportan donde se declaran; no re-exportar para evitar duplicados.

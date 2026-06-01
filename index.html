@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFoodChain 3D</title>
+
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/ui.css">
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.167.0/build/three.module.js",
+    "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.167.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+
+<body>
+    <div id="gameTitle">CADENA ALIMENTICIA 3D</div>
+
+    <div id="hud">
+        <div id="xpContainer">
+            <div id="xpBar"></div>
+        </div>
+        <div id="level">Nivel 1</div>
+        <div id="achievementPanel"></div>
+        <h1>🌿 EcoFoodChain 3D</h1>
+        <div id="xp">XP: 0</div>
+        <div id="mission">Descubre la Planta</div>
+    </div>
+
+    <div id="infoPanel">
+        <h2>Cadena Alimentaria</h2>
+        <p>Haz clic sobre un organismo.</p>
+    </div>
+
+    <button id="quizBtn">🧠 Quiz</button>
+
+    <script type="module" src="./js/app.js?v=2"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+#hud{
+
+position:absolute;
+
+top:15px;
+
+left:15px;
+
+background:rgba(0,0,0,0.6);
+
+padding:15px;
+
+border-radius:12px;
+
+color:white;
+
+z-index:100;
+
+backdrop-filter:blur(10px);
+
+}
+
+#hud h1{
+
+margin:0 0 10px;
+
+font-size:1.3rem;
+
+}
+#infoPanel{
+	position: fixed !important;
+	right: 20px !important;
+	top: 20px !important;
+	left: auto !important;
+	bottom: auto !important;
+	width: min(420px, 28vw);
+	max-width: 460px;
+	min-height: 200px;
+	background: rgba(0,0,0,0.92);
+	color: white;
+	padding: 18px 22px;
+	border-radius: 14px;
+	backdrop-filter: blur(14px);
+	box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+	z-index: 2000;
+
+}
+#infoPanel h2{
+margin:0 0 10px;
+font-size:1.7rem;
+letter-spacing:0.02em;
+}
+#infoType{
+margin:0 0 16px;
+font-size:1.05rem;
+line-height:1.5;
+color:#d0f0c0;
+}
+#infoPanel p{
+line-height:1.6;
+margin:0 0 12px;
+}
+#infoText{
+max-height:200px;
+overflow-y:auto;
+line-height:1.8;
+font-size:1rem;
+}
+.infoWord{
+white-space:nowrap;
+transition:background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+display:inline-block;
+}
+.activeWord{
+background:#ffffff;
+color:#000000;
+padding:3px 5px;
+border-radius:6px;
+font-weight:700;
+box-shadow:0 0 8px rgba(0,0,0,0.15);
+transform:scale(1.02);
+}
+#quizBtn{
+
+position:absolute;
+
+bottom:20px;
+right:20px;
+
+padding:12px;
+
+font-size:1rem;
+
+cursor:pointer;
+
+border:none;
+
+border-radius:8px;
+
+}
+#xpContainer{
+
+width:250px;
+height:20px;
+
+background:#333;
+
+border-radius:10px;
+
+overflow:hidden;
+
+margin-top:10px;
+
+}
+
+#xpBar{
+
+width:0%;
+
+height:100%;
+
+background:lime;
+
+transition:0.5s;
+
+}
+
+#level{
+
+margin-top:8px;
+
+font-weight:bold;
+
+}
+
+#achievementPanel{
+
+margin-top:10px;
+
+font-size:0.85rem;
+
+}
+#gameTitle{
+
+position:absolute;
+
+top:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:42px;
+
+font-weight:bold;
+
+color:white;
+
+text-shadow:
+0 0 10px black,
+0 0 20px black;
+
+z-index:1000;
+
+pointer-events:none;
+
+}
+.organismLabel{
+
+position:absolute;
+
+color:white;
+
+font-weight:bold;
+
+background:
+rgba(0,0,0,0.6);
+
+padding:4px 8px;
+
+border-radius:6px;
+
+pointer-events:none;
+
+font-size:14px;
+
+}
+.organismLabel{
+
+position:absolute;
+
+transform:
+translate(-50%,-50%);
+
+padding:6px 10px;
+
+background:
+rgba(0,0,0,0.65);
+
+border-radius:8px;
+
+color:white;
+
+font-weight:bold;
+
+font-size:16px;
+
+pointer-events:none;
+
+z-index:1000;
+
+}
