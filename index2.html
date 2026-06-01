@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4° Básico</title>
+  <link rel="stylesheet" href="css/index2.css">
+  <link rel="icon" href="img/pokemon.png">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <main class="pageShell">
+    <section class="welcomeCard">
+      <div class="logoBadge"><img src="img/cartoon.png" alt="Logo 4° Básico"></div>
+      <p class="eyebrow">Módulo 4to° Básico</p>
+      <h1 id="saludoTitulo">¡Bienvenido a 4to° Básico!</h1>
+      <p id="saludoTexto">Elige un avatar anime, luego entra a la bienvenida o al aprendizaje de cadenas alimentarias.</p>
+
+      <div class="avatars animeAvatars">
+        <img src="img/avatar_anime1.png" alt="Avatar anime 1" onclick="seleccionarAvatar('avatar_anime1.png', this)" class="selected">
+        <img src="img/avatar_anime2.png" alt="Avatar anime 2" onclick="seleccionarAvatar('avatar_anime2.png', this)">
+        <img src="img/avatar_anime3.png" alt="Avatar anime 3" onclick="seleccionarAvatar('avatar_anime3.png', this)">
+      </div>
+
+      <div class="actions">
+        
+        <button class="ingresarBtn secondary" onclick="irAprenderCN()">APRENDE LA CADENA ALIMENTICIA </button>
+      </div>
+    </section>
+  </main>
+  <script src="js/index2.js"></script>
+</body>
+</html>

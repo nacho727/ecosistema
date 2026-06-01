@@ -1,0 +1,414 @@
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    margin:0;
+    padding:0;
+
+    font-family:'Trebuchet MS', 'Comic Sans MS', Arial, sans-serif;
+
+    overflow-x:hidden;
+
+    background-image:url("../img/fondo-gumball.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+
+    animation:moverFondo 12s infinite alternate ease-in-out;
+}
+
+
+/* =========================
+   FONDO ANIMADO
+========================= */
+
+@keyframes moverFondo{
+
+    0%{
+        background-position:center top;
+    }
+
+    100%{
+        background-position:center bottom;
+    }
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:rgba(255,255,255,0.58);
+
+    backdrop-filter:blur(3px);
+
+    padding:20px;
+}
+
+
+/* =========================
+   PERSONAJE
+========================= */
+
+.logo{
+
+    width:250px;
+
+    margin-bottom:25px;
+
+    border-radius:50%;
+
+    animation:
+    flotar 3s infinite ease-in-out,
+    vibrar 1s infinite alternate;
+
+    filter:
+    drop-shadow(0 0 15px rgba(0,0,0,0.3))
+    drop-shadow(0 0 25px #4da6ff);
+}
+
+
+/* =========================
+   TITULO
+========================= */
+
+h1{
+
+    font-size:75px;
+
+    color:#ff4d4d;
+
+    margin-bottom:20px;
+
+    letter-spacing:1px;
+
+    text-shadow:
+    2px 2px white,
+    5px 5px rgba(0,0,0,0.12);
+
+    animation:
+    aparecer 1s ease,
+    latido 2s infinite;
+}
+
+
+/* =========================
+   SUBTITULO
+========================= */
+
+h3{
+
+    font-size:38px;
+
+    color:#2d3a55;
+
+    margin-top:35px;
+
+    margin-bottom:25px;
+
+    text-shadow:1px 1px rgba(255,255,255,0.9);
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input{
+
+    width:340px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:25px;
+
+    font-size:24px;
+
+    outline:none;
+
+    text-align:center;
+
+    background:white;
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,0.2);
+
+    transition:0.3s;
+}
+
+input:focus{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 20px #4da6ff,
+    0 0 40px rgba(77,166,255,0.4);
+}
+
+
+/* =========================
+   AVATARES
+========================= */
+
+.avatars{
+
+    display:flex;
+
+    gap:30px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.avatars img{
+
+    width:140px;
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    border:6px solid transparent;
+
+    background:white;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,0.2),
+    0 0 25px rgba(77,166,255,0.4);
+
+    animation:
+    flotar 3s infinite ease-in-out,
+    vibrar 1s infinite alternate;
+}
+
+.avatars img:hover{
+
+    transform:
+    scale(1.12)
+    rotate(3deg);
+
+    border:6px solid #4da6ff;
+
+    box-shadow:
+    0 0 20px white,
+    0 0 40px #4da6ff,
+    0 0 60px #4da6ff;
+}
+
+
+/* =========================
+   AVATAR SELECCIONADO
+========================= */
+
+.seleccionado{
+
+    border:6px solid #00cc66 !important;
+
+    transform:scale(1.12);
+
+    box-shadow:
+    0 0 25px #00cc66 !important;
+}
+
+
+/* =========================
+   BOTON
+========================= */
+
+button{
+
+    padding:20px 45px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#ffcc00;
+
+    color:#333;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    box-shadow:
+    0 0 15px rgba(0,0,0,0.2);
+
+    animation:latido 2s infinite;
+}
+
+button:hover{
+
+    transform:scale(1.08);
+
+    background:#ffd633;
+
+    box-shadow:
+    0 0 25px #ffcc00,
+    0 0 45px rgba(255,204,0,0.5);
+}
+
+
+/* =========================
+   TODAS LAS IMAGENES
+========================= */
+
+img{
+
+    border-radius:50%;
+
+    transition:0.4s;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes flotar{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+@keyframes vibrar{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    25%{
+        transform:rotate(1deg);
+    }
+
+    50%{
+        transform:rotate(-1deg);
+    }
+
+    75%{
+        transform:rotate(1deg);
+    }
+
+    100%{
+        transform:rotate(0deg);
+    }
+}
+
+@keyframes latido{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.04);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0px);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    h1{
+
+        font-size:50px;
+    }
+
+    h3{
+
+        font-size:28px;
+    }
+
+    input{
+
+        width:85%;
+
+        font-size:20px;
+    }
+
+    .avatars img{
+
+        width:100px;
+        height:100px;
+    }
+
+    button{
+
+        font-size:22px;
+
+        padding:16px 30px;
+    }
+
+    .logo{
+
+        width:180px;
+    }
+}

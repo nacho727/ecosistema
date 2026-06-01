@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>educacion</title>
+<link rel="stylesheet" href="css/index.css">
+<link rel="icon" href="img/icono.png">
+</head>
+
+<body>
+<video id="bgVideo" autoplay muted loop playsinline>
+    <source src="videos/primero_bg.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+<img src="img/personaje.png" class="logo">
+
+<h1>Hola, <span id="nombrePerfil">Usuario</span></h1>
+
+<p>Selecciona tu avatar para comenzar</p>
+
+<h3>Elige un avatar</h3>
+
+<div class="avatars">
+  <img src="img/a1.png" onclick="seleccionarAvatar('a1.png', this)">
+  <img src="img/a2.png" onclick="seleccionarAvatar('a2.png', this)">
+  <img src="img/a3.png" onclick="seleccionarAvatar('a3.png', this)">
+</div>
+
+<button onclick="ingresar('bienvenida.html')">Ingresar a vocales</button>
+
+</div>
+
+<script src="js/script.js"></script>
+<script src="js/profile.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+    const nombre = localStorage.getItem('nombre') || 'usuario';
+    if (typeof hablar === 'function') {
+        hablar(`Bienvenido ${nombre}. Escoge tu personaje para comenzar.`);
+    }
+});
+</script>
+
+</body>
+</html>

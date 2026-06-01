@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+<link rel="stylesheet" href="css/inicio.css">
+<link rel="icon" href="img/icono.png">
+</head>
+<body>
+<div class="inicioOverlay">
+    <div class="inicioCard">
+        <div class="cardHeader">
+            <h1>Bienvenido</h1>
+            <p>Ingresa tu usuario y elige tu curso actual</p>
+        </div>
+
+        <div class="formGroup">
+            <label for="nombre">Nombre de usuario</label>
+            <input id="nombre" type="text" placeholder="Tu nombre">
+        </div>
+
+        <div class="cursoLabel">Elige tu curso</div>
+        <div class="cursoGrid">
+            <button class="cursoBtn primero" onclick="seleccionarCurso('primero', this)">
+                <div class="cursoFondo"></div>
+                <span>1° Básico</span>
+            </button>
+            <button class="cursoBtn cuarto" onclick="seleccionarCurso('cuarto', this)">
+                <div class="cursoFondo"></div>
+                <span>4° Básico</span>
+            </button>
+        </div>
+
+        <button class="ingresarBtn" onclick="ingresarInicio()">Ingresar</button>
+    </div>
+</div>
+<script src="js/inicio.js"></script>
+</body>
+</html>
