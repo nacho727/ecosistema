@@ -16,7 +16,7 @@ import { updateSky } from './scene/SkySystem.js';
 import { unlockAchievement } from './achievements/AchievementSystem.js';
 import { animateOrganisms } from './ecosystem/OrganismAnimator.js';
 import { createEnergyFlow, updateEnergyFlow } from './ecosystem/EnergyFlowSystem.js';
-import { questions } from './quiz/QuizSystem.js';
+import { createEcosystemInteractions } from './ecosystem/EcosystemInteractions.js';
 import { saveGame } from './game/SaveManager.js';
 
 const scene = createScene();
@@ -43,6 +43,7 @@ const ambientParticles = createAmbientParticles(scene);
 let organismMeshes = [];
 let labels = [];
 let energyParticles = [];
+let ecosystemInteractions = null;
 
 const clock = new THREE.Clock();
 const raycaster = new THREE.Raycaster();
@@ -84,9 +85,11 @@ window.addEventListener('resize', () => {
 });
 
 async function init() {
+    setupStudentProfile();
     organismMeshes = await createFoodChain(scene);
     labels = createLabels(organismMeshes);
     energyParticles = createEnergyFlow(scene, organismMeshes);
+    ecosystemInteractions = createEcosystemInteractions(scene, organismMeshes);
     setupSelection(camera, scene, organismMeshes);
     unlockAchievement('Bienvenido al Ecosistema');
     animate();
@@ -98,6 +101,7 @@ async function init() {
 
 function animate() {
     requestAnimationFrame(animate);
+    const delta = clock.getDelta();
     const time = clock.getElapsedTime();
 
     updateSun(sunMesh, time);
@@ -110,7 +114,10 @@ function animate() {
     updateStars(stars, sunHeight);
     updateClouds(clouds);
     updateAmbientParticles(ambientParticles);
-    animateOrganisms(organismMeshes, time);
+    animateOrganisms(organismMeshes, time, delta);
+    if(ecosystemInteractions){
+        ecosystemInteractions.update();
+    }
     updateLabels(labels, camera);
     controls.update();
 
@@ -125,16 +132,18 @@ window.addEventListener('keydown', (event) => {
     }
 });
 
-const quizBtn = document.getElementById('quizBtn');
-if (quizBtn) {
-    quizBtn.addEventListener('click', () => {
-        const q = questions[Math.floor(Math.random() * questions.length)];
-        const answer = prompt(`${q.question}\n\n0) ${q.options[0]}\n1) ${q.options[1]}\n2) ${q.options[2]}\n3) ${q.options[3]}`);
+function setupStudentProfile(){
+    const name = localStorage.getItem('nombre') || 'Estudiante';
+    const avatar = localStorage.getItem('avatar') || 'avatar_anime1.png';
+    const nameNode = document.getElementById('studentName');
+    const avatarNode = document.getElementById('studentAvatar');
 
-        if (parseInt(answer) === q.correct) {
-            alert('✅ Correcto');
-        } else {
-            alert('❌ Incorrecto');
-        }
-    });
+    if(nameNode){
+        nameNode.textContent = name;
+    }
+
+    if(avatarNode){
+        avatarNode.src = `./img/${avatar}`;
+        avatarNode.alt = `Avatar de ${name}`;
+    }
 }

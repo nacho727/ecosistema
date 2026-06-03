@@ -1,116 +1,35 @@
-import { addXP }
-from "../game/XPSystem.js";
+import { addXP } from "../game/XPSystem.js";
+import { getActionLabel } from "../ecosystem/EcosystemInteractions.js";
+import { speakWithHighlight } from "../utils/SpeechHighlighter.js";
 
 export function showInfo(data){
+    const panel = document.getElementById("infoPanel");
+    if(!panel) return;
 
-const panel =
-document.getElementById(
-"infoPanel"
-);
+    panel.innerHTML = `
+        <div class="infoHeader">
+            <span class="infoBadge">${data.type}</span>
+            <h2 id="infoTitle">${data.name}</h2>
+        </div>
+        <p id="infoType"><strong>Tipo en la cadena:</strong> ${data.type}</p>
+        <div id="infoText" aria-live="polite"></div>
+        <button id="organismActionBtn" type="button">${getActionLabel(data.action)}</button>
+    `;
 
-const utteranceText =
-`${data.name}. ${data.type}. ${data.description}`;
+    const actionBtn = document.getElementById("organismActionBtn");
+    if(actionBtn){
+        actionBtn.addEventListener("click", () => {
+            window.dispatchEvent(new CustomEvent("organism-action", {
+                detail: { action: data.action, organism: data.id }
+            }));
+        });
+    }
 
-const nameWords =
-data.name
-.trim()
-.split(/\s+/);
-const typeWords =
-data.type
-.trim()
-.split(/\s+/);
-const descriptionWords =
-data.description
-.trim()
-.split(/\s+/);
+    const description = `${data.name}. Tipo en la cadena: ${data.type}. ${data.description}`;
+    speakWithHighlight(description, document.getElementById("infoText"), {
+        className: "infoWord",
+        activeClass: "activeWord"
+    });
 
-panel.innerHTML = `
-
-<h2 id="infoTitle">
-${nameWords.map((word, index) =>
-`<span class="infoWord" data-index="${index}">${word}</span>`
-).join(" ")}
-</h2>
-
-<p id="infoType">
-${typeWords.map((word, index) =>
-`<span class="infoWord" data-index="${nameWords.length + index}">${word}</span>`
-).join(" ")}
-</p>
-
-<div id="infoText">
-${descriptionWords.map((word, index) =>
-`<span class="infoWord" data-index="${nameWords.length + typeWords.length + index}">${word}</span>`
-).join(" ")}
-</div>
-
-`;
-
-highlightSpeechWords(utteranceText);
-
-addXP(10);
-
-}
-
-function highlightSpeechWords(text){
-
-const spans =
-Array.from(
-document.querySelectorAll(
-".infoWord"
-)
-);
-
-const positions = [];
-let offset = 0;
-
-const allWords = text.split(/\s+/);
-allWords.forEach(word=>{
-positions.push({
-start:offset,
-end:offset+word.length
-});
-offset += word.length + 1;
-});
-
-const utterance =
-new SpeechSynthesisUtterance(text);
-utterance.lang = "es-ES";
-utterance.rate = 1;
-utterance.pitch = 1;
-
-let activeIndex = -1;
-
-utterance.onboundary = event=>{
-if(event.name !== 'word' || event.charIndex === undefined || event.charIndex === null) return;
-
-const idx = positions.findIndex(pos=>
- event.charIndex >= pos.start &&
- event.charIndex < pos.end
-);
-
-if(idx === -1 || idx >= spans.length) return;
-
-if(idx !== activeIndex){
-if(activeIndex !== -1){
-spans[activeIndex].classList.remove("activeWord");
-}
-activeIndex = idx;
-spans[activeIndex].classList.add("activeWord");
-spans[activeIndex].scrollIntoView({
-behavior: "smooth",
-block: "nearest",
-inline: "center"
-});
-}
-};
-
-utterance.onend = ()=>{
-if(activeIndex !== -1){
-spans[activeIndex].classList.remove("activeWord");
-}
-};
-
-window.speechSynthesis.cancel();
-window.speechSynthesis.speak(utterance);
+    addXP(10);
 }

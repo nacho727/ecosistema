@@ -20,6 +20,39 @@ backdrop-filter:blur(10px);
 
 }
 
+#studentProfile{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:12px;
+padding:8px;
+border-radius:10px;
+background:rgba(255,255,255,0.12);
+}
+#studentProfile img{
+width:52px;
+height:52px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #f7d34a;
+}
+#studentProfile span{
+display:block;
+font-size:0.78rem;
+color:#d7f5ff;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:0.08em;
+}
+#studentProfile strong{
+display:block;
+max-width:170px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+font-size:1.1rem;
+}
+
 #hud h1{
 
 margin:0 0 10px;
@@ -50,6 +83,21 @@ margin:0 0 10px;
 font-size:1.7rem;
 letter-spacing:0.02em;
 }
+.infoHeader{
+display:grid;
+gap:8px;
+}
+.infoBadge{
+display:inline-flex;
+width:max-content;
+max-width:100%;
+padding:6px 10px;
+border-radius:999px;
+background:#2eaf69;
+color:#fff;
+font-weight:800;
+font-size:0.82rem;
+}
 #infoType{
 margin:0 0 16px;
 font-size:1.05rem;
@@ -66,6 +114,21 @@ overflow-y:auto;
 line-height:1.8;
 font-size:1rem;
 }
+#organismActionBtn{
+width:100%;
+margin-top:16px;
+padding:12px 14px;
+border:0;
+border-radius:8px;
+background:#f7d34a;
+color:#172014;
+font-weight:800;
+cursor:pointer;
+box-shadow:0 8px 18px rgba(0,0,0,0.25);
+}
+#organismActionBtn:hover{
+background:#ffe36f;
+}
 .infoWord{
 white-space:nowrap;
 transition:background 0.15s ease, color 0.15s ease, transform 0.15s ease;
@@ -81,22 +144,116 @@ box-shadow:0 0 8px rgba(0,0,0,0.15);
 transform:scale(1.02);
 }
 #quizBtn{
-
 position:absolute;
-
-bottom:20px;
 right:20px;
-
-padding:12px;
-
-font-size:1rem;
-
+bottom:20px;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:190px;
+min-height:64px;
+padding:14px 18px;
+border:3px solid rgba(255,255,255,0.7);
+border-radius:18px;
+background:linear-gradient(135deg,#ffdf52,#39c878);
+color:#102313;
+font-size:1.05rem;
+font-weight:900;
+line-height:1.15;
+text-align:center;
+text-decoration:none;
 cursor:pointer;
+box-shadow:0 14px 28px rgba(0,0,0,0.35),0 0 0 6px rgba(57,200,120,0.16);
+z-index:2200;
+transition:transform 0.2s ease, box-shadow 0.2s ease;
 
-border:none;
-
+}
+#quizBtn:hover{
+transform:translateY(-4px) scale(1.02);
+box-shadow:0 18px 34px rgba(0,0,0,0.4),0 0 0 7px rgba(255,223,82,0.2);
+}
+#actionPanel{
+position:absolute;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+display:flex;
+gap:8px;
+max-width:min(760px, calc(100vw - 220px));
+padding:10px;
+border-radius:12px;
+background:rgba(4,11,18,0.72);
+backdrop-filter:blur(12px);
+z-index:1400;
+box-shadow:0 10px 32px rgba(0,0,0,0.35);
+}
+#actionPanel button{
+min-width:104px;
+padding:10px 12px;
+border:1px solid rgba(255,255,255,0.16);
 border-radius:8px;
-
+background:rgba(255,255,255,0.1);
+color:white;
+font-weight:700;
+line-height:1.2;
+cursor:pointer;
+}
+#actionPanel button:hover{
+background:rgba(255,255,255,0.22);
+}
+#learningToast{
+position:absolute;
+left:50%;
+top:86px;
+transform:translate(-50%, -16px);
+width:min(620px, calc(100vw - 40px));
+padding:14px 18px;
+border-radius:10px;
+background:rgba(255,255,255,0.94);
+color:#142015;
+z-index:2400;
+opacity:0;
+pointer-events:none;
+transition:opacity 0.25s ease, transform 0.25s ease;
+box-shadow:0 10px 32px rgba(0,0,0,0.28);
+}
+#learningToast.visible{
+opacity:1;
+transform:translate(-50%, 0);
+}
+#learningToast strong{
+display:block;
+margin-bottom:4px;
+font-size:1rem;
+}
+#learningToast span{
+display:block;
+line-height:1.45;
+}
+.toastWord,
+.readWord{
+display:inline-block;
+transition:background 0.15s ease,color 0.15s ease,transform 0.15s ease;
+}
+#achievementToast{
+position:absolute;
+top:20px;
+left:50%;
+transform:translate(-50%, -14px);
+padding:10px 14px;
+border-radius:8px;
+background:#1f8f56;
+color:white;
+font-weight:800;
+opacity:0;
+z-index:2600;
+pointer-events:none;
+transition:opacity 0.22s ease, transform 0.22s ease;
+box-shadow:0 8px 26px rgba(0,0,0,0.3);
+}
+#achievementToast.visible{
+opacity:1;
+transform:translate(-50%, 0);
 }
 #xpContainer{
 
@@ -209,4 +366,49 @@ pointer-events:none;
 
 z-index:1000;
 
+}
+@media (max-width: 900px){
+	#hud{
+		max-width:calc(100vw - 30px);
+	}
+	#gameTitle{
+		top:110px;
+		font-size:28px;
+	}
+	#infoPanel{
+		left:15px !important;
+		right:15px !important;
+		top:auto !important;
+		bottom:86px !important;
+		width:auto;
+		max-width:none;
+		min-height:0;
+		padding:14px 16px;
+	}
+	#infoPanel h2{
+		font-size:1.25rem;
+	}
+	#infoText{
+		max-height:110px;
+		font-size:0.92rem;
+	}
+	#actionPanel{
+		left:15px;
+		right:15px;
+		bottom:15px;
+		transform:none;
+		max-width:none;
+		overflow-x:auto;
+	}
+	#actionPanel button{
+		flex:0 0 124px;
+		font-size:0.85rem;
+	}
+	#quizBtn{
+		right:15px;
+		bottom:150px;
+		width:160px;
+		min-height:56px;
+		z-index:2200;
+	}
 }
