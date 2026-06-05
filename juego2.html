@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 2 - Ordena la cadena</title>
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <main class="gameShell">
+        <header class="topBar">
+            <div class="studentMini">
+                <img data-student-avatar src="img/avatar_anime1.png" alt="Avatar">
+                <div><span>Perfil</span><strong data-student-name>Estudiante</strong></div>
+            </div>
+            <div class="scoreBox"><img src="img/estrella.png" alt="Estrella"><span>Puntaje: <strong data-score>0</strong></span></div>
+        </header>
+
+        <section class="gamePanel pokemonPanel">
+            <div class="gameHeader">
+                <div>
+                    <span class="unitBadge">Aventura 2 de 5</span>
+                    <h1 data-game-title>Juego 2</h1>
+                    <p class="readBox" data-game-instruction></p>
+                </div>
+                <a class="secondaryBtn" href="index_2.html">Ver 3D</a>
+            </div>
+            <div class="gameBoard">
+                <div class="dragTray" data-drag-tray></div>
+                <div class="dropTray" data-drop-tray></div>
+            </div>
+            <div class="gameActions">
+                <button class="checkBtn" data-check>Revisar respuestas</button>
+                <button class="secondaryBtn" data-reset>Reiniciar</button>
+                <a class="primaryBtn nextBtn" data-next href="juego3.html">Siguiente juego</a>
+                <div class="feedback" data-feedback>Ordena desde quien produce energía hasta el depredador superior.</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.ECO_GAME_CONFIG = {
+            id: 2,
+            title: "Juego 2: Ordena la cadena",
+            instruction: "Arrastra los seres vivos en orden: planta, grillo, ratón, serpiente y águila.",
+            points: 20,
+            next: "juego3.html",
+            items: [
+                { id: "aguila", label: "Águila", image: "img/cn-aguila.svg", say: "Águila. Depredador superior." },
+                { id: "raton", label: "Ratón", image: "img/cn-raton.svg", say: "Ratón. Consumidor secundario." },
+                { id: "planta", label: "Planta", image: "img/cn-planta.svg", say: "Planta. Productor." },
+                { id: "serpiente", label: "Serpiente", image: "img/cn-serpiente.svg", say: "Serpiente. Consumidor terciario." },
+                { id: "grillo", label: "Grillo", image: "img/cn-grillo.svg", say: "Grillo. Consumidor primario." }
+            ],
+            zones: [
+                { label: "1. Productor", accept: ["planta"] },
+                { label: "2. Consumidor primario", accept: ["grillo"] },
+                { label: "3. Consumidor secundario", accept: ["raton"] },
+                { label: "4. Consumidor terciario", accept: ["serpiente"] },
+                { label: "5. Depredador superior", accept: ["aguila"] }
+            ]
+        };
+    </script>
+    <script type="module" src="js/learningGames.js"></script>
+</body>
+</html>

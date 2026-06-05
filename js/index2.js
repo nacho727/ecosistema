@@ -1,6 +1,6 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg'), alpha: true });
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bg"), alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.z = 5;
 
@@ -17,13 +17,13 @@ function animate(){
 }
 animate();
 
-let avatarSeleccionado = localStorage.getItem('avatar') || 'avatar_anime1.png';
+let avatarSeleccionado = localStorage.getItem("avatar") || "avatar_anime1.png";
 
 function hablar(texto){
   if(!window.speechSynthesis) return;
   speechSynthesis.cancel();
   const mensaje = new SpeechSynthesisUtterance(texto);
-  mensaje.lang = 'es-ES';
+  mensaje.lang = "es-ES";
   mensaje.rate = 1;
   mensaje.pitch = 1;
   speechSynthesis.speak(mensaje);
@@ -31,46 +31,34 @@ function hablar(texto){
 
 function seleccionarAvatar(avatar, elemento){
   avatarSeleccionado = avatar;
-  document.querySelectorAll('.animeAvatars img').forEach(img => img.classList.remove('selected'));
-  elemento.classList.add('selected');
-  localStorage.setItem('avatar', avatar);
-  hablar('pokemon seleccionado');
-}
-
-function irBienvenidaCN(){
-  const nombre = localStorage.getItem('nombre') || 'Amigo';
-  if(!avatarSeleccionado){
-    hablar('Elige primero un avatar anime');
-    return;
-  }
-  localStorage.setItem('avatar', avatarSeleccionado);
-  localStorage.setItem('nombre', nombre);
-  hablar(`Bienvenido ${nombre}, entrando a bienvenida CN`);
-  setTimeout(() => { window.location.href = 'bienvenida_cn.html'; }, 600);
+  document.querySelectorAll(".animeAvatars img").forEach(img => img.classList.remove("selected"));
+  elemento.classList.add("selected");
+  localStorage.setItem("avatar", avatar);
+  hablar("Pokémon seleccionado");
 }
 
 function irAprenderCN(){
-  const nombre = localStorage.getItem('nombre') || 'Amigo';
+  const nombre = localStorage.getItem("nombre") || "Amigo";
   if(!avatarSeleccionado){
-    hablar('Elige primero un pokemon');
+    hablar("Elige primero un Pokémon");
     return;
   }
-  localStorage.setItem('avatar', avatarSeleccionado);
-  localStorage.setItem('nombre', nombre);
-  hablar(`Bienvenido ${nombre}, entrando a la experiencia`);
-  setTimeout(() => { window.location.href = 'index_2.html'; }, 600);
+  localStorage.setItem("avatar", avatarSeleccionado);
+  localStorage.setItem("nombre", nombre);
+  hablar(`Bienvenido ${nombre}, entrando a la experiencia 3D`);
+  setTimeout(() => { window.location.href = "index_2.html"; }, 600);
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const nombre = localStorage.getItem('nombre') || 'Amigo';
-  const saludoTitulo = document.getElementById('saludoTitulo');
-  const saludoTexto = document.getElementById('saludoTexto');
+window.addEventListener("DOMContentLoaded", () => {
+  const nombre = localStorage.getItem("nombre") || "Amigo";
+  const saludoTitulo = document.getElementById("saludoTitulo");
+  const saludoTexto = document.getElementById("saludoTexto");
   if(saludoTitulo){ saludoTitulo.textContent = `¡Bienvenido ${nombre} a 4° Básico!`; }
-  if(saludoTexto){ saludoTexto.textContent = 'Elige un pokemon, luego entra a la bienvenida o al aprendizaje de cadenas alimentarias.'; }
-  document.querySelectorAll('.animeAvatars img').forEach(img => {
-    if(img.getAttribute('src').includes(avatarSeleccionado.replace('.png', '')) || img.getAttribute('src').includes(avatarSeleccionado)) {
-      img.classList.add('selected');
+  if(saludoTexto){ saludoTexto.textContent = "Elige un avatar estilo Pokémon y entra a la aventura de cadenas alimentarias."; }
+  document.querySelectorAll(".animeAvatars img").forEach(img => {
+    if(img.getAttribute("src").includes(avatarSeleccionado.replace(".png", "")) || img.getAttribute("src").includes(avatarSeleccionado)) {
+      img.classList.add("selected");
     }
   });
-  hablar(`Bienvenido ${nombre} a 4° Básico. Elige tu pokemon y entra a la aventura.`);
+  hablar(`Bienvenido ${nombre} a 4° Básico. Elige tu Pokémon y entra a la aventura.`);
 });

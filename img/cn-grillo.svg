@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#f0ffe8"/>
+  <ellipse cx="88" cy="96" rx="44" ry="28" fill="#84c341"/>
+  <circle cx="126" cy="86" r="20" fill="#9ad84c"/>
+  <circle cx="132" cy="80" r="4" fill="#142414"/>
+  <path d="M54 104 28 132M70 116 58 148M103 116l18 34M116 104l34 28M118 72l28-28M128 78l36-6" stroke="#3f7d2a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M98 72c-16 6-34 6-48 0" stroke="#5b9d30" stroke-width="8" stroke-linecap="round"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#174222">Grillo</text>
+</svg>

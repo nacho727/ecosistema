@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#eef7ff"/>
+  <path d="M88 82C56 48 28 48 12 70c24 2 45 16 65 44Z" fill="#6b4426"/>
+  <path d="M92 82c32-34 60-34 76-12-24 2-45 16-65 44Z" fill="#6b4426"/>
+  <ellipse cx="90" cy="98" rx="24" ry="34" fill="#8b5a32"/>
+  <circle cx="90" cy="64" r="22" fill="#f4f1df"/>
+  <path d="M96 65h24l-20 12Z" fill="#f4b33b"/>
+  <circle cx="84" cy="60" r="4" fill="#111"/>
+  <path d="M82 130l-10 18M98 130l10 18" stroke="#f4b33b" stroke-width="7" stroke-linecap="round"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#24384a">Aguila</text>
+</svg>

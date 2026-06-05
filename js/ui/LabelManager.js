@@ -69,17 +69,13 @@ export function setHoverLabel(labels, hoveredObject){
 		if(!item || !item.element) return;
 
 		if(hoveredObject && item.object === hoveredObject){
+			item.element.classList.add('hovered');
 			item.element.style.transform = 'translate(-50%,-50%) scale(1.15)';
 			item.element.style.zIndex = '1002';
-			item.element.style.background = 'rgba(255,255,255,0.95)';
-			item.element.style.color = '#000';
-			item.element.style.boxShadow = '0 6px 18px rgba(0,0,0,0.35)';
 		} else {
+			item.element.classList.remove('hovered');
 			item.element.style.transform = 'translate(-50%,-50%) scale(1)';
 			item.element.style.zIndex = '1000';
-			item.element.style.background = 'rgba(0,0,0,0.65)';
-			item.element.style.color = 'white';
-			item.element.style.boxShadow = '';
 		}
 	});
 

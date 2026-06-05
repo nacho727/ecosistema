@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 4 - Productores y consumidores</title>
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <main class="gameShell">
+        <header class="topBar">
+            <div class="studentMini">
+                <img data-student-avatar src="img/avatar_anime1.png" alt="Avatar">
+                <div><span>Perfil</span><strong data-student-name>Estudiante</strong></div>
+            </div>
+            <div class="scoreBox"><img src="img/estrella.png" alt="Estrella"><span>Puntaje: <strong data-score>0</strong></span></div>
+        </header>
+
+        <section class="gamePanel pokemonPanel">
+            <div class="gameHeader">
+                <div>
+                    <span class="unitBadge">Aventura 4 de 5</span>
+                    <h1 data-game-title>Juego 4</h1>
+                    <p class="readBox" data-game-instruction></p>
+                </div>
+                <a class="secondaryBtn" href="index_2.html">Ver 3D</a>
+            </div>
+            <div class="gameBoard">
+                <div class="dragTray" data-drag-tray></div>
+                <div class="dropTray" data-drop-tray></div>
+            </div>
+            <div class="gameActions">
+                <button class="checkBtn" data-check>Revisar respuestas</button>
+                <button class="secondaryBtn" data-reset>Reiniciar</button>
+                <a class="primaryBtn nextBtn" data-next href="juego5.html">Siguiente juego</a>
+                <div class="feedback" data-feedback>Clasifica los seres vivos en su grupo.</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.ECO_GAME_CONFIG = {
+            id: 4,
+            title: "Juego 4: Clasifica",
+            instruction: "Arrastra los organismos hacia productor, consumidores o descomponedor.",
+            points: 20,
+            next: "juego5.html",
+            items: [
+                { id: "planta", label: "Planta", image: "img/cn-planta.svg", say: "Planta. Productor." },
+                { id: "grillo", label: "Grillo", image: "img/cn-grillo.svg", say: "Grillo. Consumidor." },
+                { id: "raton", label: "Ratón", image: "img/cn-raton.svg", say: "Ratón. Consumidor." },
+                { id: "serpiente", label: "Serpiente", image: "img/cn-serpiente.svg", say: "Serpiente. Consumidor." },
+                { id: "hongo", label: "Hongo", image: "img/cn-hongo.svg", say: "Hongo. Descomponedor." }
+            ],
+            zones: [
+                { label: "Productor", accept: ["planta"] },
+                { label: "Consumidores", accept: ["grillo", "raton", "serpiente"] },
+                { label: "Descomponedor", accept: ["hongo"] }
+            ]
+        };
+    </script>
+    <script type="module" src="js/learningGames.js"></script>
+</body>
+</html>

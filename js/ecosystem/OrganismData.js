@@ -6,7 +6,11 @@ export const organisms = [
         model: "planta",
         color: 0x22aa22,
         scale: 1.35,
-        description: "Produce energia mediante fotosintesis: usa luz solar, agua y dioxido de carbono para fabricar su alimento y liberar oxigeno.",
+        summary: "La planta es la base de la cadena alimenticia.",
+        feedsOn: "No come otros seres vivos. Fabrica su propio alimento.",
+        functionText: "Realiza fotosintesis usando luz solar, agua y dioxido de carbono.",
+        ecosystemRole: "Entrega energia al grillo y libera oxigeno al ambiente.",
+        description: "La planta es un productor. Produce su alimento mediante fotosintesis: usa luz solar, agua y dioxido de carbono para fabricar glucosa y liberar oxigeno.",
         action: "photosynthesis"
     },
     {
@@ -16,7 +20,11 @@ export const organisms = [
         model: "grillo",
         color: 0xaaff22,
         scale: 1.05,
-        description: "Se alimenta de plantas y obtiene la energia que la planta produjo con la luz del sol.",
+        summary: "El grillo es un animal pequeno que se alimenta de plantas.",
+        feedsOn: "Come hojas y partes tiernas de la planta.",
+        functionText: "Transforma la energia de la planta en energia para su cuerpo.",
+        ecosystemRole: "Sirve de alimento para el raton y mueve la energia al siguiente nivel.",
+        description: "El grillo es un consumidor primario. Se alimenta de plantas y obtiene la energia que la planta produjo con la luz del sol.",
         action: "grasshopperFeeds"
     },
     {
@@ -26,7 +34,11 @@ export const organisms = [
         model: "raton",
         color: 0x999999,
         scale: 1.05,
-        description: "Se alimenta de insectos como el grillo. Asi la energia sigue avanzando por la cadena alimentaria.",
+        summary: "El raton es un consumidor que puede alimentarse de insectos.",
+        feedsOn: "En esta cadena alimenticia come al grillo.",
+        functionText: "Obtiene energia al alimentarse de un consumidor primario.",
+        ecosystemRole: "Lleva la energia del grillo hacia la serpiente.",
+        description: "El raton es un consumidor secundario. Se alimenta de insectos como el grillo. Asi la energia sigue avanzando por la cadena alimenticia.",
         action: "mouseFeeds"
     },
     {
@@ -36,17 +48,25 @@ export const organisms = [
         model: "serpiente",
         color: 0x116633,
         scale: 1.15,
-        description: "Caza pequenos mamiferos como el raton y representa un nivel superior de consumidor.",
+        summary: "La serpiente es un depredador dentro del ecosistema.",
+        feedsOn: "En esta cadena alimenticia caza al raton.",
+        functionText: "Controla poblaciones de animales pequenos.",
+        ecosystemRole: "Pasa la energia del raton hacia el aguila.",
+        description: "La serpiente es un consumidor terciario. Caza pequenos mamiferos como el raton y representa un nivel superior de consumidor.",
         action: "snakeFeeds"
     },
     {
         id: "aguila",
         name: "Aguila",
         type: "Depredador superior",
-        model: "aguila",
+        model: "aguila_real",
         color: 0x885522,
         scale: 1.25,
-        description: "Es un depredador de alto nivel. Puede cazar serpientes y casi no tiene depredadores naturales en esta cadena.",
+        summary: "El aguila esta en la parte alta de esta cadena alimenticia.",
+        feedsOn: "En esta cadena alimenticia puede cazar a la serpiente.",
+        functionText: "Ayuda a mantener el equilibrio entre los animales del ecosistema.",
+        ecosystemRole: "Recibe energia de la serpiente y casi no tiene depredadores en esta cadena.",
+        description: "El aguila es un depredador superior. Puede cazar serpientes y casi no tiene depredadores naturales en esta cadena alimenticia.",
         action: "eagleFeeds"
     },
     {
@@ -56,7 +76,11 @@ export const organisms = [
         model: "hongo",
         color: 0xffffff,
         scale: 1.2,
-        description: "Descompone restos de seres vivos y devuelve nutrientes al suelo para que las plantas puedan crecer.",
+        summary: "El hongo recicla la materia del ecosistema.",
+        feedsOn: "Descompone restos de plantas y animales.",
+        functionText: "Devuelve nutrientes al suelo para que nuevas plantas puedan crecer.",
+        ecosystemRole: "Cierra el ciclo de la materia y ayuda a que la cadena continue.",
+        description: "El hongo es un descomponedor. Descompone restos de seres vivos y devuelve nutrientes al suelo para que las plantas puedan crecer.",
         action: "decompose"
     }
 ];

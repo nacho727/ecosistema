@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#fff5e8"/>
+  <path d="M28 126h124" stroke="#7a4f2a" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="56" cy="110" r="10" fill="#9b6b3d"/>
+  <circle cx="90" cy="98" r="12" fill="#b78349"/>
+  <circle cx="124" cy="112" r="9" fill="#8a5a35"/>
+  <path d="M88 88V48" stroke="#2f8f46" stroke-width="8" stroke-linecap="round"/>
+  <path d="M88 62c-24-10-26-28-3-26 14 2 18 16 3 26Z" fill="#54c96c"/>
+  <path d="M94 76c26-10 28-32 4-30-16 2-22 18-4 30Z" fill="#2fb25b"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="16" font-weight="700" fill="#5a351b">Nutrientes</text>
+</svg>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4° Básico - Cadena alimenticia</title>
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="icon" href="img/pokemon.png">
+</head>
+<body>
+    <main class="learnShell">
+        <header class="topBar">
+            <div class="studentMini">
+                <img data-student-avatar src="img/avatar_anime1.png" alt="Avatar del estudiante">
+                <div>
+                    <span>Perfil</span>
+                    <strong data-student-name>Estudiante</strong>
+                </div>
+            </div>
+            <div class="scoreBox">
+                <img src="img/estrella.png" alt="Estrella">
+                <span>Puntaje: <strong data-score>0</strong></span>
+            </div>
+        </header>
+
+        <section class="heroPanel pokemonPanel">
+            <div class="heroText">
+                <span class="unitBadge">4° Básico · Ciencias Naturales</span>
+                <h1>Cadena alimenticia</h1>
+                <p>Aprende cómo la energía pasa de un ser vivo a otro dentro de un ecosistema.</p>
+                <div class="readBox" data-read-text="La cadena alimenticia muestra quién produce energía, quién se alimenta de otros seres vivos y quién recicla nutrientes. La planta es productor, el grillo es consumidor primario, el ratón es consumidor secundario, la serpiente es consumidor terciario, el águila es depredador superior y el hongo es descomponedor."></div>
+
+                <div class="learnGrid">
+                    <article class="learnCard">
+                        <img src="img/cn-planta.svg" alt="Productor">
+                        <h2>Productor</h2>
+                        <p>La planta fabrica su alimento con luz solar.</p>
+                        <button class="secondaryBtn" data-say="Productor. La planta fabrica su alimento con luz solar.">Escuchar</button>
+                    </article>
+                    <article class="learnCard">
+                        <img src="img/cn-grillo.svg" alt="Consumidor primario">
+                        <h2>Consumidor primario</h2>
+                        <p>El grillo obtiene energía al comer plantas.</p>
+                        <button class="secondaryBtn" data-say="Consumidor primario. El grillo obtiene energía al comer plantas.">Escuchar</button>
+                    </article>
+                    <article class="learnCard">
+                        <img src="img/cn-raton.svg" alt="Consumidor secundario">
+                        <h2>Consumidor secundario</h2>
+                        <p>El ratón come insectos como el grillo y pasa la energía adelante.</p>
+                        <button class="secondaryBtn" data-say="Consumidor secundario. El ratón come insectos como el grillo.">Escuchar</button>
+                    </article>
+                    <article class="learnCard">
+                        <img src="img/cn-serpiente.svg" alt="Consumidor terciario">
+                        <h2>Consumidor terciario</h2>
+                        <p>La serpiente caza al ratón y mantiene el equilibrio del ecosistema.</p>
+                        <button class="secondaryBtn" data-say="Consumidor terciario. La serpiente caza al ratón.">Escuchar</button>
+                    </article>
+                    <article class="learnCard">
+                        <img src="img/cn-aguila.svg" alt="Depredador superior">
+                        <h2>Depredador superior</h2>
+                        <p>El águila está en la cima de la cadena y caza serpientes.</p>
+                        <button class="secondaryBtn" data-say="Depredador superior. El águila caza serpientes.">Escuchar</button>
+                    </article>
+                    <article class="learnCard">
+                        <img src="img/cn-hongo.svg" alt="Descomponedor">
+                        <h2>Descomponedor</h2>
+                        <p>El hongo devuelve nutrientes al suelo.</p>
+                        <button class="secondaryBtn" data-say="Descomponedor. El hongo devuelve nutrientes al suelo.">Escuchar</button>
+                    </article>
+                </div>
+
+                <a class="primaryBtn" href="index_2.html">Entrar al aprendizaje 3D</a>
+                <a class="secondaryBtn" href="juego1.html">Comenzar juegos</a>
+            </div>
+            <div class="heroImage">
+                <img src="img/cn-ecosistema.svg" alt="Ecosistema con cadena alimenticia">
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/learningGames.js"></script>
+</body>
+</html>

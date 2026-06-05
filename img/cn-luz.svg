@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#fff9d7"/>
+  <circle cx="90" cy="82" r="34" fill="#ffd84d"/>
+  <g stroke="#ffb934" stroke-width="9" stroke-linecap="round">
+    <path d="M90 22v20M90 124v22M32 82h22M126 82h22M48 40l15 15M132 40l-15 15M48 124l15-15M132 124l-15-15"/>
+  </g>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#6b4a00">Luz solar</text>
+</svg>

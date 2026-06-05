@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#eef7ff"/>
+  <ellipse cx="84" cy="100" rx="48" ry="32" fill="#9aa3ad"/>
+  <circle cx="124" cy="88" r="24" fill="#b8c0c8"/>
+  <circle cx="118" cy="64" r="14" fill="#8c949c"/>
+  <circle cx="118" cy="64" r="8" fill="#f1a8b7"/>
+  <circle cx="132" cy="83" r="4" fill="#111"/>
+  <path d="M145 94c18 6 28 2 34-8" stroke="#777" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M38 106c-24 12-30 30-18 38" stroke="#777" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#24384a">Raton</text>
+</svg>

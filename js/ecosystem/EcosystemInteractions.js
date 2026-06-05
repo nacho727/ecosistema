@@ -5,32 +5,32 @@ import { speakWithHighlight } from '../utils/SpeechHighlighter.js';
 
 const ACTIONS = {
     photosynthesis: {
-        label: 'Fotosintesis',
-        description: 'La planta recibe luz, agua y CO2. Produce glucosa y libera oxigeno.'
+        label: 'Fotosíntesis',
+        description: 'La planta recibe luz, agua y CO2. Produce glucosa y libera oxígeno.'
     },
     grasshopperFeeds: {
         label: 'Grillo come planta',
         actor: 'grillo',
         target: 'planta',
-        description: 'El grillo obtiene energia al alimentarse de la planta.'
+        description: 'El grillo obtiene energía al alimentarse de la planta.'
     },
     mouseFeeds: {
-        label: 'Raton come grillo',
+        label: 'Ratón come grillo',
         actor: 'raton',
         target: 'grillo',
-        description: 'El raton obtiene energia al alimentarse del grillo.'
+        description: 'El ratón obtiene energía al alimentarse del grillo.'
     },
     snakeFeeds: {
-        label: 'Serpiente caza raton',
+        label: 'Serpiente caza ratón',
         actor: 'serpiente',
         target: 'raton',
-        description: 'La serpiente transfiere energia al cazar al raton.'
+        description: 'La serpiente transfiere energía al cazar al ratón.'
     },
     eagleFeeds: {
-        label: 'Aguila caza serpiente',
+        label: 'Águila caza serpiente',
         actor: 'aguila',
         target: 'serpiente',
-        description: 'El depredador superior recibe energia desde la serpiente.'
+        description: 'El depredador superior recibe energía desde la serpiente.'
     },
     decompose: {
         label: 'Hongo recicla nutrientes',
@@ -246,7 +246,7 @@ export function createEcosystemInteractions(scene, organisms){
 }
 
 export function getActionLabel(actionKey){
-    return ACTIONS[actionKey]?.label || 'Ver accion';
+    return ACTIONS[actionKey]?.label || 'Ver acción';
 }
 
 function createActionPanel(){

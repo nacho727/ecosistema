@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 5 - Ciclo del ecosistema</title>
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <main class="gameShell">
+        <header class="topBar">
+            <div class="studentMini">
+                <img data-student-avatar src="img/avatar_anime1.png" alt="Avatar">
+                <div><span>Perfil</span><strong data-student-name>Estudiante</strong></div>
+            </div>
+            <div class="scoreBox"><img src="img/estrella.png" alt="Estrella"><span>Puntaje: <strong data-score>0</strong></span></div>
+        </header>
+
+        <section class="gamePanel pokemonPanel">
+            <div class="gameHeader">
+                <div>
+                    <span class="unitBadge">Aventura 5 de 5</span>
+                    <h1 data-game-title>Juego 5</h1>
+                    <p class="readBox" data-game-instruction></p>
+                </div>
+                <a class="secondaryBtn" href="index_2.html">Ver 3D</a>
+            </div>
+            <div class="gameBoard">
+                <div class="dragTray" data-drag-tray></div>
+                <div class="dropTray" data-drop-tray></div>
+            </div>
+            <div class="gameActions">
+                <button class="checkBtn" data-check>Revisar respuestas</button>
+                <button class="secondaryBtn" data-reset>Reiniciar</button>
+                <div class="feedback" data-feedback>Completa los procesos del ecosistema.</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.ECO_GAME_CONFIG = {
+            id: 5,
+            title: "Juego 5: Completa el ciclo",
+            instruction: "Arrastra cada concepto al proceso correcto: fotosíntesis, alimentación o descomposición.",
+            points: 20,
+            next: "final.html",
+            items: [
+                { id: "luz", label: "Luz solar", image: "img/cn-luz.svg", say: "Luz solar." },
+                { id: "agua", label: "Agua y CO2", image: "img/cn-agua.svg", say: "Agua y dióxido de carbono." },
+                { id: "energia", label: "Energía que pasa", image: "img/cn-energia.svg", say: "Energía que pasa." },
+                { id: "nutrientes", label: "Nutrientes al suelo", image: "img/cn-nutrientes.svg", say: "Nutrientes al suelo." }
+            ],
+            zones: [
+                { label: "Fotosíntesis usa...", accept: ["luz", "agua"] },
+                { label: "Cadena alimenticia mueve...", accept: ["energia"] },
+                { label: "Descomposición devuelve...", accept: ["nutrientes"] }
+            ]
+        };
+    </script>
+    <script type="module" src="js/learningGames.js"></script>
+</body>
+</html>

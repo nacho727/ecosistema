@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#eaf8ff"/>
+  <path d="M90 28c34 40 48 64 48 88 0 28-22 46-48 46s-48-18-48-46c0-24 14-48 48-88Z" fill="#56c8ff"/>
+  <path d="M70 120c16 14 36 14 52 0" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#135c83">Agua y CO2</text>
+</svg>

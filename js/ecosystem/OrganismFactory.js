@@ -147,17 +147,28 @@ function createFallbackSnake(group){
 function createFallbackEagle(group){
     const body = new THREE.Mesh(new THREE.SphereGeometry(0.5, 18, 14), new THREE.MeshStandardMaterial({ color: 0x8b5a2b }));
     body.name = 'body';
+    body.scale.set(1, 0.75, 1.25);
     const wingMat = new THREE.MeshStandardMaterial({ color: 0x654321 });
-    const leftWing = new THREE.Mesh(new THREE.BoxGeometry(1.55, 0.08, 0.52), wingMat);
+    const leftWing = new THREE.Mesh(new THREE.BoxGeometry(1.85, 0.08, 0.6), wingMat);
     leftWing.name = 'leftWing';
     leftWing.position.x = -0.85;
+    leftWing.rotation.z = 0.18;
     const rightWing = leftWing.clone();
     rightWing.name = 'rightWing';
     rightWing.position.x = 0.85;
-    const head = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 10), new THREE.MeshStandardMaterial({ color: 0xf2f2f2 }));
+    rightWing.rotation.z = -0.18;
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.24, 14, 12), new THREE.MeshStandardMaterial({ color: 0xf2f2f2 }));
     head.name = 'head';
-    head.position.set(0, 0.22, 0.45);
-    group.add(body, leftWing, rightWing, head);
+    head.position.set(0, 0.28, 0.58);
+    const beak = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.25, 10), new THREE.MeshStandardMaterial({ color: 0xf2b632 }));
+    beak.name = 'beak';
+    beak.rotation.x = Math.PI / 2;
+    beak.position.set(0, 0.26, 0.82);
+    const tail = new THREE.Mesh(new THREE.ConeGeometry(0.24, 0.55, 3), wingMat);
+    tail.name = 'tail';
+    tail.rotation.x = -Math.PI / 2;
+    tail.position.set(0, -0.02, -0.64);
+    group.add(body, leftWing, rightWing, head, beak, tail);
 }
 
 function createFallbackMushroom(group){

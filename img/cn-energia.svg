@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="28" fill="#f2fff0"/>
+  <path d="M40 98h72l-20-28 48 44H68l20 28Z" fill="#39c878"/>
+  <circle cx="48" cy="60" r="18" fill="#ffd84d"/>
+  <path d="M36 132c36 18 72 18 108 0" stroke="#2f8f46" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <text x="90" y="166" text-anchor="middle" font-family="Arial" font-size="18" font-weight="700" fill="#174222">Energia</text>
+</svg>

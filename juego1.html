@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego 1 - Roles en la cadena</title>
+    <link rel="stylesheet" href="css/games.css">
+</head>
+<body>
+    <main class="gameShell">
+        <header class="topBar">
+            <div class="studentMini">
+                <img data-student-avatar src="img/avatar_anime1.png" alt="Avatar">
+                <div><span>Perfil</span><strong data-student-name>Estudiante</strong></div>
+            </div>
+            <div class="scoreBox"><img src="img/estrella.png" alt="Estrella"><span>Puntaje: <strong data-score>0</strong></span></div>
+        </header>
+
+        <section class="gamePanel pokemonPanel">
+            <div class="gameHeader">
+                <div>
+                    <span class="unitBadge">Aventura 1 de 5</span>
+                    <h1 data-game-title>Juego 1</h1>
+                    <p class="readBox" data-game-instruction></p>
+                </div>
+                <a class="secondaryBtn" href="index_2.html">Ver 3D</a>
+            </div>
+
+            <div class="gameBoard">
+                <div class="dragTray" data-drag-tray></div>
+                <div class="dropTray" data-drop-tray></div>
+            </div>
+
+            <div class="gameActions">
+                <button class="checkBtn" data-check>Revisar respuestas</button>
+                <button class="secondaryBtn" data-reset>Reiniciar</button>
+                <a class="primaryBtn nextBtn" data-next href="juego2.html">Siguiente juego</a>
+                <div class="feedback" data-feedback>Arrastra cada organismo al tipo correcto.</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.ECO_GAME_CONFIG = {
+            id: 1,
+            title: "Juego 1: ¿Qué tipo es?",
+            instruction: "Arrastra cada organismo hacia su tipo en la cadena alimenticia.",
+            points: 20,
+            next: "juego2.html",
+            items: [
+                { id: "planta", label: "Planta", image: "img/cn-planta.svg", say: "Planta. Productor." },
+                { id: "grillo", label: "Grillo", image: "img/cn-grillo.svg", say: "Grillo. Consumidor primario." },
+                { id: "hongo", label: "Hongo", image: "img/cn-hongo.svg", say: "Hongo. Descomponedor." }
+            ],
+            zones: [
+                { label: "Productor", accept: ["planta"] },
+                { label: "Consumidor primario", accept: ["grillo"] },
+                { label: "Descomponedor", accept: ["hongo"] }
+            ]
+        };
+    </script>
+    <script type="module" src="js/learningGames.js"></script>
+</body>
+</html>

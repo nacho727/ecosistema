@@ -49,6 +49,7 @@ const clock = new THREE.Clock();
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 let hoveredObject = null;
+let highlightedObject = null;
 
 window.addEventListener('pointermove', (event) => {
     pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -61,14 +62,16 @@ window.addEventListener('pointermove', (event) => {
 
     if (hits.length > 0) {
         let object = hits[0].object;
-        while (object.parent && !object.userData.name) {
+        while (object.parent && !object.userData.id) {
             object = object.parent;
         }
 
-        if (object.userData && object.userData.name) {
+        if (object.userData && object.userData.id) {
             if (hoveredObject !== object) {
                 hoveredObject = object;
                 setHoverLabel(labels, hoveredObject);
+                setObjectHighlight(hoveredObject);
+                document.body.classList.add('organism-hovering');
             }
             return;
         }
@@ -76,6 +79,8 @@ window.addEventListener('pointermove', (event) => {
 
     hoveredObject = null;
     setHoverLabel(labels, null);
+    setObjectHighlight(null);
+    document.body.classList.remove('organism-hovering');
 });
 
 window.addEventListener('resize', () => {
@@ -135,6 +140,7 @@ window.addEventListener('keydown', (event) => {
 function setupStudentProfile(){
     const name = localStorage.getItem('nombre') || 'Estudiante';
     const avatar = localStorage.getItem('avatar') || 'avatar_anime1.png';
+    const score = localStorage.getItem('ecoScore') || '0';
     const nameNode = document.getElementById('studentName');
     const avatarNode = document.getElementById('studentAvatar');
 
@@ -146,4 +152,50 @@ function setupStudentProfile(){
         avatarNode.src = `./img/${avatar}`;
         avatarNode.alt = `Avatar de ${name}`;
     }
+
+    document.querySelectorAll('[data-score]').forEach(node => {
+        node.textContent = score;
+    });
+}
+
+function setObjectHighlight(object){
+    if(highlightedObject === object) return;
+
+    clearObjectHighlight(highlightedObject);
+    highlightedObject = object;
+
+    if(!object) return;
+
+    object.traverse(child => {
+        if(!child.isMesh || !child.material) return;
+        const materials = Array.isArray(child.material) ? child.material : [child.material];
+        materials.forEach(material => {
+            if(!material) return;
+            if(material.emissive){
+                material.userData = material.userData || {};
+                material.userData.originalEmissive = material.emissive.getHex();
+                material.userData.originalEmissiveIntensity = material.emissiveIntensity || 0;
+                material.emissive.setHex(0xffdd55);
+                material.emissiveIntensity = 0.45;
+            }
+        });
+    });
+}
+
+function clearObjectHighlight(object){
+    if(!object) return;
+
+    object.traverse(child => {
+        if(!child.isMesh || !child.material) return;
+        const materials = Array.isArray(child.material) ? child.material : [child.material];
+        materials.forEach(material => {
+            if(!material || !material.emissive || !material.userData) return;
+            if(material.userData.originalEmissive !== undefined){
+                material.emissive.setHex(material.userData.originalEmissive);
+                material.emissiveIntensity = material.userData.originalEmissiveIntensity || 0;
+                delete material.userData.originalEmissive;
+                delete material.userData.originalEmissiveIntensity;
+            }
+        });
+    });
 }
